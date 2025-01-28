@@ -1,19 +1,29 @@
 class Solution {
     public int maxProfit(int[] prices) {
-        if (prices == null || prices.length < 2) return 0;  // If there are less than two prices, no profit can be made.
+        int cnt=0;
+    for (int i = 1; i < prices.length; i++) {
+    if (prices[i] < prices[i - 1]) {
+        cnt += 1;
+    }
+}
+if (cnt + 1 == prices.length) return 0;
 
-        int minPrice = Integer.MAX_VALUE;  // Initialize minPrice to the largest possible value
-        int maxProfit = 0;  // Initialize maxProfit to 0
-
-        for (int price : prices) {
-            // Update the minimum price encountered so far
-            if (price < minPrice) {
-                minPrice = price;
-            }
-            // Calculate profit if selling at the current price and update maxProfit
-            maxProfit = Math.max(maxProfit, price - minPrice);
+    
+        int mx=0;
+        int mn=Integer.MAX_VALUE;
+        int val=0;
+        
+      for(int i=0;i<prices.length;i++)
+      {
+        if(prices[i]<mn)
+        {
+            mn=prices[i];
         }
+        mx=Math.max(prices[i]-mn,mx);
+      }
+      if(mx==0) return 0;
+      return mx;
 
-        return maxProfit;
+        
     }
 }
