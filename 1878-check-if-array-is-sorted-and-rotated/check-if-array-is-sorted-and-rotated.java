@@ -18,6 +18,10 @@ class Solution {
            else{
             c++;
            }
+           if(c>2)
+           {
+            return false;
+           }
         }
         
         if(c==1){
