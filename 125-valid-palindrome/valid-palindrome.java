@@ -10,13 +10,7 @@ class Solution {
                 fs+=s.charAt(i);
             }
         }
-        fs=fs.toLowerCase();
-        System.out.println(fs.length());
-        if(fs.length()<=1)
-        {
-            return true;
-        }
-        
+        fs=fs.toLowerCase(); 
            return isP(fs);
         
     }
