@@ -5,10 +5,9 @@ class Solution {
         while(isalnu(sb.toString())!=-1){
             
                 n=isalnu(sb.toString());
-                if(n!=-1)
-                {
+               
                     sb.deleteCharAt(n);
-                }
+                
               
                 for(int i=n-1;i>-1;i--)
                 {
