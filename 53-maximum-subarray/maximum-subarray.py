@@ -6,5 +6,5 @@ class Solution:
         for i in range(1,len(nums)):
             minn=min(nums[i],nums[i]+minn)
             maxn=max(nums[i],nums[i]+maxn)
-            maxs=max(maxs,maxn,minn)
+            maxs=max(maxs,maxn)
         return maxs
