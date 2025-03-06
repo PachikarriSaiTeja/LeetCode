@@ -14,11 +14,7 @@ class Solution {
                 arr[grid[i][j]]++;
             }
         }
-        for(int i:arr)
-        {
-            System.out.println(i);
-        }
-        for(int i=0;i<=val;i++){
+        for(int i=1;i<=val;i++){
 
                 if(arr[i]==0 && i!=0)
                 {
