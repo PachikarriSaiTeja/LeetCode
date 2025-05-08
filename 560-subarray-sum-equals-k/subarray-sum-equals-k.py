@@ -1,14 +1,20 @@
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
-        pre=0
-        hm={0:1}
+        pr=0
+        ans={0:1}
         cnt=0
         for i in nums:
-            pre=pre+i
-            if pre-k in hm:
-                cnt+=hm[pre-k]
-            if pre in hm:
-                hm[pre]+=1
+            pr+=i
+            if pr-k in ans:
+                cnt+=ans[pr-k]
+            if pr not in ans:
+                ans[pr]=1
             else:
-                hm[pre]=1
+                ans[pr]+=1
+            
+        return cnt
+        
+          
+           
+
         return cnt
