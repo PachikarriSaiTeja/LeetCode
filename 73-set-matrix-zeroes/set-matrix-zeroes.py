@@ -1,24 +1,19 @@
 class Solution:
     def setZeroes(self, matrix: List[List[int]]) -> None:
-        r=len(matrix)
-        c=len(matrix[0])
-        ans=[]
-        for i in range(r):
-            for j in range(c):
+        cList=[]
+        rList=[]
+        for i in range(len(matrix)):
+            for j in range(len(matrix[0])):
                 if matrix[i][j]==0:
-                    ans.append(i)
-                    ans.append(j)
-        print(ans)
-        iv=0
-        jv=1
-        while(iv<len(ans)-1):
-            for i in range(c):
-                matrix[ans[iv]][i]=0
-            iv+=2
-        while(jv<len(ans)):
-            for j in range(r):
-                matrix[j][ans[jv]]=0
-            jv+=2
+                    cList.append(i)
+                    rList.append(j)
 
-       
+        for i in range(len(matrix)):
+            for j in range(len(matrix[0])):
+                if i in cList:
+                    matrix[i][j]=0
+                if j in rList:
+                    matrix[i][j]=0
+
+        
         
