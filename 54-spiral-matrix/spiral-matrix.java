@@ -1,32 +1,80 @@
 class Solution {
-  public List<Integer> spiralOrder(int[][] matrix) {
-    if (matrix.length == 0)
-      return new ArrayList<>();
+    List<Integer> visited = new ArrayList<>();
+    public List<Integer> spiralOrder(int[][] matrix) {
+        
+        int row = matrix.length;
+        int column = matrix[0].length;
+        int t = 0, l = 0;
+        int r = column-1, b = row-1;
+        
 
-    final int m = matrix.length;
-    final int n = matrix[0].length;
-    List<Integer> ans = new ArrayList<>();
-    int r1 = 0;
-    int c1 = 0;
-    int r2 = m - 1;
-    int c2 = n - 1;
+        while(visited.size()!=column*row)
+        {
 
-    // Repeatedly add matrix[r1..r2][c1..c2] to `ans`.
-    while (ans.size() < m * n) {
-      for (int j = c1; j <= c2 && ans.size() < m * n; ++j)
-        ans.add(matrix[r1][j]);
-      for (int i = r1 + 1; i <= r2 - 1 && ans.size() < m * n; ++i)
-        ans.add(matrix[i][c2]);
-      for (int j = c2; j >= c1 && ans.size() < m * n; --j)
-        ans.add(matrix[r2][j]);
-      for (int i = r2 - 1; i >= r1 + 1 && ans.size() < m * n; --i)
-        ans.add(matrix[i][c1]);
-      ++r1;
-      ++c1;
-      --r2;
-      --c2;
+if(t<=b){
+    
+            addRow(matrix,t,l,r,1);
+            t++;
+}
+if(l<=r)
+{
+    
+            addCol(matrix,r,t,b,1);
+            r--;
+}
+if(t<=b)
+{
+    
+            addRow(matrix,b,r,l,-1);
+            b--;
+}
+if(l<=r)
+{
+    
+            addCol(matrix,l,b,t,-1);
+            l++;
+            
+}
+          
+        }
+        return visited;
+        
+    }
+    public void addRow(int[][] matrix, int r, int s, int e, int m)
+    {
+        if(m==1)
+        {
+            for(int i=s;i<=e;i++)
+        {
+            visited.add(matrix[r][i]);
+        }
+
+        }
+        else
+        {
+           for(int i=s;i>=e;i--)
+           {
+                    visited.add(matrix[r][i]);
+           }
+        }
+    }
+    public void addCol(int[][] matrix, int c, int s, int e ,int m)
+    {
+        if(m==1)
+        {
+            
+         for(int i=s;i<=e;i++)
+        {
+            visited.add(matrix[i][c]);
+        }
+        
+        }
+        else{
+            for(int i=s;i>=e;i--)
+            {
+                visited.add(matrix[i][c]);
+            }
+        }
     }
 
-    return ans;
-  }
 }
