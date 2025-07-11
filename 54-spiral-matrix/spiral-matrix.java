@@ -11,30 +11,26 @@ class Solution {
         while(visited.size()!=column*row)
         {
 
-if(t<=b){
-    
+
             addRow(matrix,t,l,r,1);
             t++;
-}
-if(l<=r)
-{
-    
+            if(visited.size()==column*row) return visited;
+
             addCol(matrix,r,t,b,1);
             r--;
-}
-if(t<=b)
-{
-    
+
+            if(visited.size()==column*row) return visited;
+
             addRow(matrix,b,r,l,-1);
             b--;
-}
-if(l<=r)
-{
-    
+
+            if(visited.size()==column*row) return visited;
+
             addCol(matrix,l,b,t,-1);
             l++;
+
+            if(visited.size()==column*row) return visited;
             
-}
           
         }
         return visited;
