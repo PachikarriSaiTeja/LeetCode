@@ -1,0 +1,11 @@
+class Solution(object):
+    def sumZero(self, n):
+        ans = []
+        for i in range(1,(n//2)+1):
+            ans.append(i)
+            ans.append(-1 * i)
+        if(n%2==1):
+            ans.append(0)
+            
+        return ans
+        
